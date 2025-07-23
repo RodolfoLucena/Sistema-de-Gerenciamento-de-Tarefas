@@ -11,17 +11,15 @@ import com.treina.recife.sgp.model.Projeto;
 @Repository
 public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
 
-    List<Tarefa>findByResponsavelUserId(Long userId);
 
-    /*List<Tarefa>findByProjetoProjectId(Projeto usuario);*/
+    List<Tarefa> findByProjetoProjectId(long projectId);
 
-    List<Tarefa>fundByUsuarioUserId(Long userId);
+    List<Tarefa> findByUsuarioUserId(Long userId);
 
     boolean existsByTitulo(String title);
 
     boolean existsByUsuarioUserId(Long userId);
 
-    Optional<Projeto> findyResponsavelUserId(Long userId);
 
 
     

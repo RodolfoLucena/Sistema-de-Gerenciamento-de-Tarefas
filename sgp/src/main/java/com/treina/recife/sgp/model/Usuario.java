@@ -56,9 +56,5 @@ public class Usuario implements Serializable {
 
     @OneToMany(mappedBy = "responsavel" )
     private List<Projeto> projetos = new ArrayList<>();
-
-
-
-
     
 }
