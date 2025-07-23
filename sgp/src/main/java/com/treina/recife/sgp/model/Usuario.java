@@ -1,5 +1,6 @@
 package com.treina.recife.sgp.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "Usuario")
-public class Usuario {
+public class Usuario implements Serializable {
+
+    private static final long serialVersionUID =1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +46,7 @@ public class Usuario {
     @Column(name = "SENHA", nullable = false )
     private String senha;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @Column(name = "DATANASCIMENTO", nullable = false)
     private LocalDate dataNascimento;
 

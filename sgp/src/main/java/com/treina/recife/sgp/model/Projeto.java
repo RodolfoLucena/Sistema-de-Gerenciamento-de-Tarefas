@@ -1,5 +1,6 @@
 package com.treina.recife.sgp.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 
@@ -25,7 +26,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "PROJETO")
-public class Projeto {
+public class Projeto implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,11 +42,11 @@ public class Projeto {
     private String descricao;
 
     @Column(name = "dataInicio", nullable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dataInicio;
 
     @Column(name = "dataConclusao", nullable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dataConclusao;
 
     @ManyToOne
